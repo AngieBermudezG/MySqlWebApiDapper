@@ -8,4 +8,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MySqlWebApiDapper.Data\MySqlWebApiDapper.Data.csproj" />
+    <ProjectReference Include="..\MySqlWebApiDapper.Models\MySqlWebApiDapper.Models.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApiMySQLNetCore.Data;
+using WebApiMySQLNetCore.Data.Repositories;
 
 namespace MySqlWebApiDapper
 {
@@ -26,6 +28,10 @@ namespace MySqlWebApiDapper
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mySqlConnectionConfig = new MySqlConfiguration(Configuration.GetConnectionString("MySqlConnection"));
+            services.AddSingleton(mySqlConnectionConfig);
+
+            services.AddScoped<ICarRepository, CarRepository>(); 
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
